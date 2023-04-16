@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import ScoreCard from "./ScoreCard";
 import FeedbackIcon from "@mui/icons-material/Feedback";
-import { width } from "@mui/system";
+import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
 const theme = createTheme();
 
 export default function QuizTest() {
