@@ -1,5 +1,4 @@
 import "./App.css";
-import Button from "@mui/material/Button";
 import QuizFront from "./components/QuizFront";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CreateQuestions from "./components/CreateQuestions";

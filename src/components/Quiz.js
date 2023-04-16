@@ -20,10 +20,6 @@ const theme = createTheme();
 export default function QuizTest() {
   const navigate = useNavigate();
   const { createdQuiz, SetselectedQuizId } = useStates();
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -68,9 +64,6 @@ export default function QuizTest() {
                 }}
               >
                 <Box
-                  component="form"
-                  onSubmit={handleSubmit}
-                  noValidate
                   sx={{ mt: 1 }}
                 >
                   <TextField

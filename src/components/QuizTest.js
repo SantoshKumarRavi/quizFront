@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import OptionSelection from "./Option.Select";
 import { useStates } from "../State/State";
-import { useNavigate } from "react-router-dom";
 
 import { CardContent, Typography, TextField } from "@mui/material";
 import ScoreCard from "./ScoreCard";
@@ -10,7 +9,6 @@ const QuizTest = () => {
   const [filterQuiz, SetfilterQuiz] = useState([]);
   const [currentQuesIndex, SetcurrentQuesIndex] = useState(0);
   const [TotalScore, setTotalScore] = useState(0);
-  const navigate = useNavigate();
   useEffect(() => {
     let filter = createdQuiz.filter((obj) => selectedQuizId === obj?._id)[0]
       ?.questions;
@@ -53,16 +51,16 @@ const QuizTest = () => {
                 InputProps={{ readOnly: true }}
               />
               {options?.map((option, index) => {
+                let value=false
                 if (option !== "") {
-                  return (
-                    <OptionSelection
-                      key={index}
-                      value={option}
-                      index={index}
-                      onSelect={() => NextQuestion(index, currentQuesIndex)}
-                    />
-                  );
+                  value=true
                 }
+                return value&&<OptionSelection
+                key={index}
+                value={option}
+                index={index}
+                onSelect={() => NextQuestion(index, currentQuesIndex)}
+              />
               })}
             </CardContent>
           ))}

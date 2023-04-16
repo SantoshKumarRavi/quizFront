@@ -52,7 +52,7 @@ const CreateQuestions = () => {
       },
     ]);
     // }
-  }, []);
+  }, [SetQuestion]);
 
   async function CreateQuiz() {
     let Questions = Question.map(({ QuesDesc, options }) => {
@@ -243,7 +243,6 @@ const CreateQuestions = () => {
                 <Grid item>
                   <Button
                     onClick={() => {
-                      let find = Question.find((obj) => obj.id === QuesID);
                       let findIndex = Question.findIndex(
                         (obj) => obj.id === QuesID
                       );
