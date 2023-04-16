@@ -72,14 +72,17 @@ const CreateQuestions = () => {
       questions: Questions,
     };
     setIsloading(true);
+    console.log("sent",sentObj);
     await fetch("https://quizbackend-x9lu.onrender.com/create", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Accept":"*/*"
       },
       body: JSON.stringify(sentObj),
     })
       .then((res) => {
+        console.log("res",res);
         if (res.status === 200) {
           navigate("/");
           SetQuestion(() => []);

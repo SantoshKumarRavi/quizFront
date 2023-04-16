@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useState, createContext, useContext } from "react";
 const Context = createContext();
 const State = ({ children }) => {
@@ -9,7 +9,7 @@ const State = ({ children }) => {
   const [Timelimit, SetTimeLimit] = useState("");
   const [createdQuiz, SetCreatedQuiz] = useState([]);
   const [selectedQuizId, SetselectedQuizId] = useState("");
-  useEffect(() => {
+  // useEffect(() => {
     async function fetchQuiz() {
       await fetch("https://quizbackend-x9lu.onrender.com/create")
         .then((x) => {
@@ -19,8 +19,8 @@ const State = ({ children }) => {
           SetCreatedQuiz(() => res);
         });
     }
-    fetchQuiz();
-  }, []);
+    // fetchQuiz();
+  // }, []);
   let reducer = {
     Question: Question,
     SetQuestion: SetQuestion,
@@ -33,6 +33,8 @@ const State = ({ children }) => {
     Timelimit: Timelimit,
     SetTimeLimit: SetTimeLimit,
     createdQuiz: createdQuiz,
+    fetchQuiz: fetchQuiz,
+    SetCreatedQuiz:SetCreatedQuiz,
     selectedQuizId: selectedQuizId,
     SetselectedQuizId: SetselectedQuizId,
   };

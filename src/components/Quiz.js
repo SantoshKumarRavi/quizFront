@@ -1,4 +1,4 @@
-import * as React from "react";
+import  React,{useEffect} from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import HomeIcon from "@mui/icons-material/Home";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -19,8 +19,10 @@ const theme = createTheme();
 
 export default function QuizTest() {
   const navigate = useNavigate();
-  const { createdQuiz, SetselectedQuizId } = useStates();
-
+  const { createdQuiz, SetselectedQuizId,fetchQuiz } = useStates();
+useEffect(()=>{
+  fetchQuiz()
+},[fetchQuiz])
   return (
     <ThemeProvider theme={theme}>
       <CardActions>
